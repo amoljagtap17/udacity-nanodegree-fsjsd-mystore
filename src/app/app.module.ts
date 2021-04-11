@@ -9,6 +9,8 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductItemDetailComponent } from './components/product-item-detail/product-item-detail.component';
 import { CartComponent } from './components/cart/cart.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,13 +18,10 @@ import { CartComponent } from './components/cart/cart.component';
     ProductItemComponent,
     ProductListComponent,
     ProductItemDetailComponent,
-    CartComponent
+    CartComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
