@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../../models/Product';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-product-item',
@@ -13,7 +14,7 @@ export class ProductItemComponent implements OnInit {
 
   quantity: number = 1;
 
-  constructor() {
+  constructor(private cartService: CartService) {
     this.product = {
       id: 0,
       name: '',
@@ -31,6 +32,8 @@ export class ProductItemComponent implements OnInit {
   }
 
   submitAddToCartForm(): void {
-    alert(`Added ${this.product.quantity} of ${this.product.name}`);
+    alert(`Added ${this.product.quantity} of ${this.product.name} to cart!`);
+
+    this.cartService.addProductToCart(this.product);
   }
 }
