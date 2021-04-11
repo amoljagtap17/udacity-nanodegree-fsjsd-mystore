@@ -11,6 +11,7 @@ import { CartComponent } from './components/cart/cart.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { AddToCartFormComponent } from './components/add-to-cart-form/add-to-cart-form.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     ProductListComponent,
     ProductItemDetailComponent,
     CartComponent,
+    AddToCartFormComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

@@ -15,35 +15,7 @@
       </div>
     </a>
     <div class="card-footer">
-      <form
-        class="d-flex justify-content-between"
-        (ngSubmit)="submitAddToCartForm()"
-      >
-        <select
-          class="form-control"
-          style="max-width: '50%'"
-          [(ngModel)]="quantity"
-          name="quantity"
-          (ngModelChange)="updateQuantity($event)"
-        >
-          <option *ngFor="let quantity of quantities" [ngValue]="quantity">
-            {{ quantity }}
-          </option>
-        </select>
-        <!-- <input
-          name="quantity"
-          type="number"
-          class="form-control"
-          min="0"
-          max="10"
-          step="1"
-          style="max-width: '50%'"
-          [(ngModel)]="product.quantity"
-        /> -->
-
-        <!-- [disabled]="product.quantity === null || product.quantity === 0" -->
-        <button class="btn btn-primary">Add to cart</button>
-      </form>
+      <app-add-to-cart-form [product]="product"></app-add-to-cart-form>
     </div>
   </div>
 </div>

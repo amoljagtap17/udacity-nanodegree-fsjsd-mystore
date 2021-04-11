@@ -15,6 +15,11 @@ export class CartService {
 
     this.cart.push(product);
 
-    this.amount = this.cart.reduce((acc, obj) => obj.quantity * obj.price, 0);
+    this.amount = this.cart.reduce(
+      (acc, obj) => acc + obj.quantity * obj.price,
+      0
+    );
+
+    console.log('cart >> ', this.cart, this.amount);
   }
 }
