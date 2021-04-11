@@ -10,15 +10,10 @@
     <h1>{{ product.name }}</h1>
     <strong>${{ product.price }}</strong>
     <p>{{ product.description }}</p>
-    <input
-      type="number"
-      class="form-control mb-3"
-      min="1"
-      max="10"
-      style="max-width: '50%'"
-    />
-    <button class="btn btn-primary mb-3">Add to cart</button>
-    <a class="d-block text-primary" routerLink="/"
+    <div class="cart-form">
+      <app-add-to-cart-form [product]="product"></app-add-to-cart-form>
+    </div>
+    <a class="d-block text-primary mt-2" routerLink="/"
       ><span style="font-size: '20px'">&#8592; Back to product list</span></a
     >
   </div>
