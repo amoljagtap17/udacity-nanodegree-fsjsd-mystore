@@ -16,6 +16,11 @@ export class ProductListComponent implements OnInit {
     // this.products = (data as any).default;
 
     this.productService.getProducts().subscribe((res) => {
+      for (let index = 0; index < res.length; index++) {
+        const product = res[index];
+        product['quantity'] = 0;
+      }
+
       this.products = res;
     });
   }
