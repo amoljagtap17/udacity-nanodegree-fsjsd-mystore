@@ -1,17 +1,19 @@
 <div class="col mb-5">
   <div class="card h-100 position-relative shadow">
-    <img
-      src="{{ product.url }}"
-      class="card-img-top"
-      alt="{{ product.name }}"
-    />
-    <span class="position-absolute badge bg-warning text-dark price-badge"
-      >{{ product.price }} $</span
-    >
-    <div class="card-body">
-      <h5 class="card-title">{{ product.name }}</h5>
-      <p class="card-text">{{ product.description }}</p>
-    </div>
+    <a routerLink="/products/{{ product.id }}">
+      <img
+        src="{{ product.url }}"
+        class="card-img-top"
+        alt="{{ product.name }}"
+      />
+      <span class="position-absolute badge bg-warning text-dark price-badge"
+        >{{ product.price }} $</span
+      >
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">{{ product.description }}</p>
+      </div>
+    </a>
     <div class="card-footer d-flex justify-content-between">
       <input
         type="number"
