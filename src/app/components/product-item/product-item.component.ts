@@ -9,7 +9,9 @@ import { Product } from '../../models/Product';
 export class ProductItemComponent implements OnInit {
   @Input() product: Product;
 
-  // quantities: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  quantities: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  quantity: number = 1;
 
   constructor() {
     this.product = {
@@ -23,6 +25,10 @@ export class ProductItemComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  updateQuantity(value: number): void {
+    this.product.quantity = value;
+  }
 
   submitAddToCartForm(): void {
     alert(`Added ${this.product.quantity} of ${this.product.name}`);
