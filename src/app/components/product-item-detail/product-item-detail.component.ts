@@ -22,7 +22,7 @@ export class ProductItemDetailComponent implements OnInit {
       price: 0.0,
       url: '',
       description: '',
-      quantity: 0,
+      quantity: 1,
     };
   }
 
@@ -34,6 +34,8 @@ export class ProductItemDetailComponent implements OnInit {
         const products: Product[] = res;
 
         this.product = products.filter((product) => product.id === this.id)[0];
+
+        this.product['quantity'] = 1;
       });
     });
   }

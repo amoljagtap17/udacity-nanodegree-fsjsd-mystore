@@ -21,7 +21,7 @@ export class AddToCartFormComponent implements OnInit {
       price: 0.0,
       url: '',
       description: '',
-      quantity: 0,
+      quantity: 1,
     };
   }
 
