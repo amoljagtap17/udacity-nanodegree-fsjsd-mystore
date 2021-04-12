@@ -8,7 +8,7 @@
   </div>
   <div class="col align-self-center">
     <h1>{{ product.name }}</h1>
-    <strong>${{ product.price }}</strong>
+    <strong>{{ product.price | currency: "USD" }}</strong>
     <p>{{ product.description }}</p>
     <div class="cart-form">
       <app-add-to-cart-form [product]="product"></app-add-to-cart-form>

@@ -7,8 +7,8 @@
         alt="{{ product.name }}"
       />
       <span class="position-absolute badge bg-warning text-dark price-badge"
-        >{{ product.price }} $</span
-      >
+        >{{ product.price | currency: "USD" }}
+      </span>
       <div class="card-body">
         <h5 class="card-title">{{ product.name }}</h5>
         <p class="card-text">{{ product.description }}</p>
