@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { AddToCartFormComponent } from './components/add-to-cart-form/add-to-cart-form.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { CartCheckoutFormComponent } from './components/cart-checkout-form/cart-checkout-form.component';
+import { CheckoutSuccessComponent } from './components/checkout-success/checkout-success.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { CartCheckoutFormComponent } from './components/cart-checkout-form/cart-
     AddToCartFormComponent,
     CartItemComponent,
     CartCheckoutFormComponent,
+    CheckoutSuccessComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

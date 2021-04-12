@@ -25,4 +25,8 @@ export class CartService {
   getCartProducts(): Product[] {
     return this.cart;
   }
+
+  resetCart(): void {
+    this.cart = [];
+  }
 }

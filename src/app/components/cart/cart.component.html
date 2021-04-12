@@ -12,12 +12,18 @@
     </div>
   </div>
   <div class="col">
-    <app-cart-checkout-form></app-cart-checkout-form>
+    <app-cart-checkout-form
+      (updateCheckout)="updateCheckout($event)"
+    ></app-cart-checkout-form>
   </div>
 </div>
 
 <ng-template #elseBlock>
-  <div class="row">
+  <app-checkout-success
+    *ngIf="showSuccessPage"
+    [checkOutData]="checkOutData"
+  ></app-checkout-success>
+  <div class="row" *ngIf="!showSuccessPage">
     <div class="col">
       <h1>Cart is Empty!</h1>
     </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/Product';
+import { Checkout } from '../../models/Checkout';
 import { CartService } from '../../services/cart.service';
 
 @Component({
@@ -10,8 +11,17 @@ import { CartService } from '../../services/cart.service';
 export class CartComponent implements OnInit {
   cartProducts: Product[] = [];
   cartTotal: number = 0;
+  showSuccessPage: boolean = false;
+  checkOutData: Checkout;
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService) {
+    this.checkOutData = {
+      fullName: '',
+      address: '',
+      card: '',
+      amount: 0,
+    };
+  }
 
   updateCartTotal(): void {
     this.cartTotal = this.cartProducts.reduce(
@@ -34,5 +44,12 @@ export class CartComponent implements OnInit {
     this.cartProducts = this.cartProducts.filter((item) => item.quantity > 0);
 
     this.updateCartTotal();
+  }
+
+  updateCheckout(checkOutData: Checkout): void {
+    this.checkOutData = { ...checkOutData, amount: this.cartTotal };
+    this.showSuccessPage = true;
+    this.cartProducts = [];
+    this.cartService.resetCart();
   }
 }
