@@ -6,26 +6,14 @@ import { Product } from '../models/Product';
 })
 export class CartService {
   cart: Product[] = [];
-  amount: number = 0;
 
   constructor() {}
 
   addProductToCart(product: Product): void {
-    this.cart = this.cart.filter((item) => item.id !== product.id);
-
     this.cart.push(product);
-
-    this.amount = this.cart.reduce(
-      (acc, obj) => acc + obj.quantity * obj.price,
-      0
-    );
   }
 
   getCartProducts(): Product[] {
     return this.cart;
-  }
-
-  getCartTotalAmount(): number {
-    return this.amount;
   }
 }

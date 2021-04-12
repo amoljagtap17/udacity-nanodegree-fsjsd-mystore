@@ -15,6 +15,10 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartproducts = this.cartService.getCartProducts();
-    this.cartTotal = this.cartService.getCartTotalAmount();
+
+    this.cartTotal = this.cartproducts.reduce(
+      (acc, obj) => acc + obj.quantity * obj.price,
+      0
+    );
   }
 }
