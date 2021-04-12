@@ -16,6 +16,7 @@
         step="1"
         [(ngModel)]="cartProduct.quantity"
         (ngModelChange)="updateCartProductQuantity($event)"
+        onKeyDown="return false"
       />
     </div>
   </div>
