@@ -1,8 +1,9 @@
-<div class="row" *ngIf="cartproducts.length; else elseBlock">
+<div class="row" *ngIf="cartProducts.length; else elseBlock">
   <div class="col">
     <app-cart-item
-      *ngFor="let cartProduct of cartproducts"
+      *ngFor="let cartProduct of cartProducts"
       [cartProduct]="cartProduct"
+      (updateQuantity)="updateQuantity(cartProduct)"
     ></app-cart-item>
     <div class="row cart-item mb-4">
       <div class="col d-flex justify-content-center">
