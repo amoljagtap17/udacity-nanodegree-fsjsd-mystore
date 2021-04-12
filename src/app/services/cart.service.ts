@@ -10,7 +10,16 @@ export class CartService {
   constructor() {}
 
   addProductToCart(product: Product): void {
-    this.cart.push(product);
+    const productExistsInCart =
+      this.cart.filter((item) => item.id === product.id).length > 0;
+
+    if (productExistsInCart) {
+      this.cart = this.cart.map((item) =>
+        item.id === product.id ? product : item
+      );
+    } else {
+      this.cart.push(product);
+    }
   }
 
   getCartProducts(): Product[] {
