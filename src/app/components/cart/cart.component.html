@@ -1,11 +1,12 @@
 <div class="row">
   <div class="col">
-    <app-cart-item></app-cart-item>
-    <app-cart-item></app-cart-item>
-    <app-cart-item></app-cart-item>
+    <app-cart-item
+      *ngFor="let cartProduct of cartproducts"
+      [cartProduct]="cartProduct"
+    ></app-cart-item>
     <div class="row cart-item mb-4">
       <div class="col d-flex justify-content-center">
-        <h1>Total: $419.93</h1>
+        <h1>Total: ${{ cartTotal }}</h1>
       </div>
     </div>
   </div>

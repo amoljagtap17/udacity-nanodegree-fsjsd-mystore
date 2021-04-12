@@ -19,7 +19,13 @@ export class CartService {
       (acc, obj) => acc + obj.quantity * obj.price,
       0
     );
+  }
 
-    console.log('cart >> ', this.cart, this.amount);
+  getCartProducts(): Product[] {
+    return this.cart;
+  }
+
+  getCartTotalAmount(): number {
+    return this.amount;
   }
 }
