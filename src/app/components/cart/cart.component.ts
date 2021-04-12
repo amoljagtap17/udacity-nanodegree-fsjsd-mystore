@@ -37,11 +37,7 @@ export class CartComponent implements OnInit {
   }
 
   updateQuantity(product: Product): void {
-    this.cartProducts = this.cartProducts.map((item) =>
-      item.id === product.id ? product : item
-    );
-
-    this.cartProducts = this.cartProducts.filter((item) => item.quantity > 0);
+    this.cartProducts = this.cartService.updateQuantity(product);
 
     this.updateCartTotal();
   }

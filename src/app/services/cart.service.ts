@@ -29,4 +29,14 @@ export class CartService {
   resetCart(): void {
     this.cart = [];
   }
+
+  updateQuantity(product: Product): Product[] {
+    this.cart = this.cart.map((item) =>
+      item.id === product.id ? product : item
+    );
+
+    this.cart = this.cart.filter((item) => item.quantity > 0);
+
+    return this.cart;
+  }
 }
