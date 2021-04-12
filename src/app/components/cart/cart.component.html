@@ -1,4 +1,4 @@
-<div class="row" *ngIf="cartProducts.length; else elseBlock">
+<div class="row" *ngIf="cartProducts.length === 0; else elseBlock">
   <div class="col">
     <app-cart-item
       *ngFor="let cartProduct of cartProducts"
@@ -11,7 +11,9 @@
       </div>
     </div>
   </div>
-  <div class="col">Form</div>
+  <div class="col">
+    <app-cart-checkout-form></app-cart-checkout-form>
+  </div>
 </div>
 
 <ng-template #elseBlock>
