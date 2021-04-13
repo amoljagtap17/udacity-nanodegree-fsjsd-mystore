@@ -6,13 +6,21 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./cart-checkout-form.component.css'],
 })
 export class CartCheckoutFormComponent implements OnInit {
-  fullName: string = '';
-  address: string = '';
-  card: string = '';
+  fullName: string;
+  address: string;
+  card: string;
+  errors: { card: string };
 
   @Output() updateCheckout: EventEmitter<any> = new EventEmitter();
 
-  constructor() {}
+  constructor() {
+    this.fullName = '';
+    this.address = '';
+    this.card = '';
+    this.errors = {
+      card: '',
+    };
+  }
 
   ngOnInit(): void {}
 
@@ -23,10 +31,18 @@ export class CartCheckoutFormComponent implements OnInit {
       card: this.card,
     };
 
+    if (!Number(this.card)) {
+      this.errors.card = 'Please provide a valid 16 digit number.';
+      return;
+    }
+
     this.updateCheckout.emit(checkOutData);
 
     this.fullName = '';
     this.address = '';
     this.card = '';
+    this.errors = {
+      card: '',
+    };
   }
 }

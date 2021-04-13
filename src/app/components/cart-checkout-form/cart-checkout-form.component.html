@@ -37,11 +37,14 @@
         required
         minlength="16"
         maxlength="16"
-        class="form-control"
+        class="form-control {{ errors.card.length && 'is-invalid' }}"
         placeholder="(16-digit number)"
         [(ngModel)]="card"
         onkeypress="return event.charCode >= 48 && event.charCode <= 57"
       />
+      <div class="invalid-feedback" *ngIf="errors.card.length">
+        {{ errors.card }}
+      </div>
       <div id="cardHelp" class="form-text">
         We'll never share your payment details with anyone else.
       </div>
