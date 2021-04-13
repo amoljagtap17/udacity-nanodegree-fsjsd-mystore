@@ -20,11 +20,17 @@ export class CartService {
       this.cart.filter((item) => item.id === product.id).length > 0;
 
     if (productExistsInCart) {
+      alert(
+        `Product ${product.name} already exists in cart. Updating the quantity to ${product.quantity}.`
+      );
+
       this.cart = this.cart.map((item) =>
         item.id === product.id ? product : item
       );
     } else {
       this.cart.push(product);
+
+      alert(`Added ${product.quantity} of ${product.name} to cart!`);
     }
   }
 
