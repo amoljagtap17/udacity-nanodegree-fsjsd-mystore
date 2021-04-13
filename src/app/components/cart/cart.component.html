@@ -1,5 +1,5 @@
 <div class="row" *ngIf="cartProducts.length; else elseBlock">
-  <div class="col">
+  <div class="col-sm-12 col-md-6">
     <app-cart-item
       *ngFor="let cartProduct of cartProducts"
       [cartProduct]="cartProduct"
@@ -11,7 +11,7 @@
       </div>
     </div>
   </div>
-  <div class="col">
+  <div class="col-sm-12 col-md-6">
     <app-cart-checkout-form
       (updateCheckout)="updateCheckout($event)"
     ></app-cart-checkout-form>
@@ -24,7 +24,7 @@
     [checkOutData]="checkOutData"
   ></app-checkout-success>
   <div class="row" *ngIf="!showSuccessPage">
-    <div class="col">
+    <div class="col-sm-12">
       <h1>Cart is Empty!</h1>
     </div>
   </div>

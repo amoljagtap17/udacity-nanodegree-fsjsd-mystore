@@ -1,8 +1,8 @@
 <div class="row cart-item mb-4">
-  <div class="col d-flex justify-content-end mx-4">
+  <div class="col-sm-12 col-md-4 d-flex justify-content-center">
     <img src="{{ cartProduct.url }}" class="img-fluid rounded" alt="image" />
   </div>
-  <div class="col">
+  <div class="col-sm-12 col-md-8">
     <h1>{{ cartProduct.name }}</h1>
     <strong>{{ cartProduct.price | currency: "USD" }}</strong>
     <div class="d-flex align-items-center">
