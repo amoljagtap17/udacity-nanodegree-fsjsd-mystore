@@ -1,14 +1,19 @@
-<form class="d-flex justify-content-between" (ngSubmit)="submitAddToCartForm()">
-  <select
-    class="form-control"
-    style="max-width: '50%'"
-    [(ngModel)]="quantity"
-    name="quantity"
-    (ngModelChange)="updateQuantity($event)"
-  >
-    <option *ngFor="let quantity of quantities" [ngValue]="quantity">
-      {{ quantity }}
-    </option>
-  </select>
-  <button class="btn btn-primary">Add to cart</button>
+<form (ngSubmit)="submitAddToCartForm()">
+  <div class="row">
+    <div class="col-sm-6 col-md-6 mb-3">
+      <select
+        class="form-control"
+        [(ngModel)]="quantity"
+        name="quantity"
+        (ngModelChange)="updateQuantity($event)"
+      >
+        <option *ngFor="let quantity of quantities" [ngValue]="quantity">
+          {{ quantity }}
+        </option>
+      </select>
+    </div>
+    <div class="col-sm-6 col-md-6 mb-3">
+      <button class="btn btn-primary">Add to cart</button>
+    </div>
+  </div>
 </form>

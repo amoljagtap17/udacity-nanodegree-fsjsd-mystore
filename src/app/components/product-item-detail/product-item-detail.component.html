@@ -1,19 +1,17 @@
 <div class="row product-item-detail">
-  <div class="col">
+  <div class="col-sm-12 col-md-6 d-flex justify-content-center mb-3">
     <img
       src="{{ product.url }}"
       class="img-fluid rounded"
       alt="{{ product.name }}"
     />
   </div>
-  <div class="col align-self-center">
+  <div class="col-sm-12 p-sm-4 col-md-6 d-flex flex-column align-self-center">
     <h1>{{ product.name }}</h1>
     <strong>{{ product.price | currency: "USD" }}</strong>
     <p>{{ product.description }}</p>
-    <div class="cart-form">
-      <app-add-to-cart-form [product]="product"></app-add-to-cart-form>
-    </div>
-    <a class="d-block text-primary mt-2" routerLink="/"
+    <app-add-to-cart-form [product]="product"></app-add-to-cart-form>
+    <a class="d-block text-primary mt-2 mb-4" routerLink="/"
       ><span style="font-size: '20px'">&#8592; Back to product list</span></a
     >
   </div>
