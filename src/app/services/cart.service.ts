@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { Product } from '../models/Product';
 
 @Injectable({
@@ -7,7 +9,11 @@ import { Product } from '../models/Product';
 export class CartService {
   cart: Product[] = [];
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
+
+  getProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>('assets/data.json');
+  }
 
   addProductToCart(product: Product): void {
     const productExistsInCart =

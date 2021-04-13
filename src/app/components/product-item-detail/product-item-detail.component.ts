@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Product } from '../../models/Product';
-import { ProductService } from '../../services/product.service';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-product-item-detail',
@@ -12,10 +12,7 @@ export class ProductItemDetailComponent implements OnInit {
   id: number = 0;
   product: Product;
 
-  constructor(
-    private route: ActivatedRoute,
-    private productService: ProductService
-  ) {
+  constructor(private route: ActivatedRoute, private cartService: CartService) {
     this.product = {
       id: 0,
       name: '',
@@ -30,7 +27,7 @@ export class ProductItemDetailComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.id = +params.get('id')!;
 
-      this.productService.getProducts().subscribe((res) => {
+      this.cartService.getProducts().subscribe((res) => {
         const products: Product[] = res;
 
         this.product = products.filter((product) => product.id === this.id)[0];
